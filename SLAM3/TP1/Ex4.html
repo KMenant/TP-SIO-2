@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr"> 
+<html>
+	<head>
+		<title>Exercice…</title>
+		<meta charset="utf-8" /> 
+
+		<script language="javascript">
+
+			var prix_achat
+			var quantite
+			var prix_vente
+
+			function calculvente()
+			{
+				prix_achat = document.getElementById("formulaire").elements["prix"].value;
+				quantite = document.getElementById("formulaire").elements["qte"].value;
+				prix_vente = parseFloat(prix_achat)*parseFloat(quantite);
+				if (!isNaN (prix_vente))
+					document.getElementById("formulaire").elements["vente"].value = prix_vente;
+				else
+					document.getElementById("formulaire").elements["vente"].value = "Valeur non numerique";
+			}
+
+		</script>
+	</head>
+	<body>
+
+		<form method="POST" id="formulaire">
+			<p>Prix <input type="text" name="prix" size="20" onblur="calculvente()"></p>
+			<p>Quantité <input type="text" name="qte" value="1" size="20" onblur="calculvente()"></p>
+			<p>Vente <input type="text" name="vente" size="20"></p>
+			<p><input type="submit" value="Envoyer" name="B1"></p>
+		</form>
+
+	</body>
+</html>

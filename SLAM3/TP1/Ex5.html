@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr"> 
+<html>
+	<head>
+		<title>Exercice…</title>
+		<meta charset="utf-8" /> 
+	</head>
+	<body>
+
+		<script language="javascript">
+			var best = 0;
+			do
+			{
+				var nb = Math.floor(1 + (100-1+1)*Math.random());
+				alert(nb);
+	
+				var rep = parseInt(prompt('Entrer un nombre'));
+	
+				var nb_coup = 0
+	
+				while (rep != nb)
+				{
+	
+					if (rep > nb)
+						rep = parseInt(prompt('Entrer un nombre plus petit'));
+					else if (rep < nb)
+						rep = parseInt(prompt('Entrer un nombre plus grand'));
+					nb_coup++;
+				}
+				if (best == 0 || best > nb_coup)
+					best = nb_coup;
+			}
+			while (confirm("Bien joué, la réponse était bien "+nb+". Votre score : "+nb_coup+" Meilleur score : "+best+" Rejouer ?"));
+
+		</script>
+
+	</body>
+</html>

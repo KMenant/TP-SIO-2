@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>Exercice…</title>
+		<script language="javascript">
+	
+			var nb1, nb2;
+
+			function add()
+			{
+				alert(nb1+' + '+nb2+' = '+(nb1+nb2));
+			}
+
+			function mult()
+			{
+				alert(nb1+' x '+nb2+' = '+(nb1*nb2));
+			}
+
+			function grand()
+			{
+				if (nb1 > nb2)
+					alert(nb1+' > '+nb2);
+				else if (nb1 < nb2)
+					alert(nb2+' > '+nb1);
+				else 
+					alert(nb1+' = '+nb2);
+
+			}
+
+			function change()
+			{
+				nb1 = parseInt(prompt('Entrer un nombre','test')); 
+				nb2 = parseInt(prompt('Entrer un nombre','test')); 
+
+			}
+
+			function Ex2()
+			{
+				do
+				var saisie = prompt('Entrer un chiffre entre 1 et 10','1...10'); 
+				while (saisie > 11 || saisie < 0)
+
+					alert('Bien joué, '+saisie+' est bien entre 1 et 10.');
+
+				document.write('Table de multiplication');
+				document.write('<table border=1>');
+
+					document.write('<tr>');
+						document.write('<td>x</td>');
+						for(var i=1;i<11;i++)
+							document.write('<td>'+i+'</td>');
+					document.write('</tr>');
+
+					document.write('<tr>');
+						document.write('<td>'+saisie+'</td>');
+						for(var i=1;i<11;i++)
+							document.write('<td>'+saisie*i+'</td>');
+					document.write('</tr>');
+
+				document.write('</table>');
+			}
+		</script>
+	</head>
+	<body>
+
+		<script language='javascript'>
+
+			change();
+
+		</script>
+
+		<form>
+			<input type="button" value="Addition" OnClick="add()">
+			<input type="button" value="Multiplication" OnClick="mult()">
+			<input type="button" value="Plus grand" OnClick="grand()">
+			<input type="button" value="Changers de nombres" OnClick="change()">
+		</form> 
+
+	</body>
+</html>
