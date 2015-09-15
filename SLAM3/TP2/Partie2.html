@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> TP2 Formulaire</title>
+	<link href ='http://fonts.googleapis.com/css?family=Archivo+Narrow:400|Overlock+SC'
+	rel='stylesheet' type ='text/css'>
+	<link rel ="stylesheet" href='styles.css' type="text/css" media="screen" />
+
+	<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css"
+	type="text/css" media="all" />
+	<link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docstheme/ui.theme.css"
+	type="text/css" media="all" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"
+	type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"
+	type="text/javascript"></script> 
+
+</head>
+<body>
+	<section id="global">
+		<form action="#" name="formulaire" onsubmit="return verif();">
+			<fieldset>
+				<legend>Inscription</legend>
+				<div>
+					<label for="email">Votre Email</label>
+					<input type="text" id="email" name="email"/>
+				</div>
+				<div>
+					<label for="mdp">Votre mot de passe</label>
+					<input type="password" id="mdp" name="mdp"/>
+				</div>
+			</fieldset>
+			<fieldset id="informations_complementaires">
+				<legend>Informations complémentaires</legend>
+				<div class="afficher"><a href="#informations_complementaires">Informations
+					complémentaires</a></div>
+					<div class="masquer"><a href="#">Fermer</a></div>
+					<div>
+						<label for="nom">Nom</label>
+						<input type="text" id="nom" name="nom" />
+					</div>
+					<div>
+						<label for="prenom">Prénom</label>
+						<input type="text" id="prenom" name="prenom" />
+					</div>
+					<div>
+						<label for="dep">Département</label>
+						<input type="number" id="dep" name="dep"/>
+					</div>
+					<div>
+						<label for="pays">Pays</label>
+						<select id="pays" name="pays" />
+						<option value="fr">France</option>
+						<option value="es">Espagne</option>
+						<option value="uk">Angleterre</option>
+						<option value="de">Allemagne</option>
+					</select>
+				</div>
+				<div>
+					<label for="datepicker">Né(e) le </label>
+					<input type="text" id="datepicker" name="datepicker" />
+				</div>
+				<div>
+					<input type="radio" id="sexe" name="sexe" value='femme' checked/>Femme
+					<input type="radio" id="sexe" name="sexe" value='homme' />Homme
+				</div>
+				<div>
+					<label for="tel">Telephone</label>
+					<input type="tel" id="tel" name="tel" maxlength="10"/>
+				</div>
+				<div>
+					<label for="competences">Compétences informatiques</label>
+				</div>
+				<div>
+					HTML5<input type="checkbox" id="competent[]" name="competent[]" value="HTML5"/>
+					CSS3<input type="checkbox" id="competent[]" name="competent[]" value="CSS3"/>
+					PHP<input type="checkbox" id="competent[]" name="competent[]" value="PHP"/>
+					Javascript<input type="checkbox" id="competent[]" name="competent[]" value="JavaScript"/>
+				</div>
+			</fieldset>
+			<input type="submit" value="Je m'inscris" name="inscription" id="inscription" />
+
+			<input type="reset" value="Effacer">
+		</form>
+	</section>
+
+	<script language="javascript">
+
+		$(function() {
+				$( "#datepicker" ).datepicker();
+			});
+
+
+		function verif ( )
+		{
+			var valid=true;
+
+			if ( document.forms['formulaire'].elements['email'].value== "" )
+			{
+				alert ( "Veuillez entrer un email !" );
+				valid = false;
+				return valid;
+			}
+
+			if ( document.forms['formulaire'].elements['mdp'].value== "" )
+			{
+				alert ( "Veuillez entrer un mot de passe !" );
+				valid = false;
+				return valid;
+			}
+
+			if ( document.forms['formulaire'].elements['mdp'].value.length < 6 )
+			{
+				alert ( "Veuillez entrer un mot de passe de plus de 6 charactères !" );
+				valid = false;
+				return valid;
+			}
+
+			if ( document.forms['formulaire'].elements['tel'].value.length != 10)
+			{
+				alert ( "Veuillez entrer un telephone de 10 chiffres !" );
+				valid = false;
+				return valid;
+			}
+
+			if ( document.forms['formulaire'].elements['tel'].value.charAt(0) != 0)
+			{
+				alert ( "Veuillez entrer un telephone qui commence par 0 !" );
+				valid = false;
+				return valid;
+			}
+
+			var checkboxs=document.forms['formulaire'].elements['competent[]'];
+			var check=false;
+			for(var i=0; i<checkboxs.length; i++)
+			{
+				if (checkboxs[i].checked)
+				{
+					check=true;
+					break;
+				}
+			}
+			if (!check) 
+			{
+				alert("Veuillez selectionner une competence informatique !");
+				valid = false;
+				return valid;
+			}
+
+			return valid;
+		}
+
+	</script>
+</body>
+</html> 
