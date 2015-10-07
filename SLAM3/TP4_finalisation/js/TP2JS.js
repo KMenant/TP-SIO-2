@@ -17,7 +17,13 @@ var valid=true;
     {
         alert ( "Veuillez entrer votre email !"  );
         valid = false;
-		return valid;
+    return valid;
+    }
+    else if ( !verifMail(document.forms['formulaire'].elements['email']) )
+    {
+        alert ( "Veuillez entrer un email valide !"  );
+        valid = false;
+    return valid;
     }
 		
 	if ( document.forms['formulaire'].elements['motpasse'].value == "" )
@@ -41,7 +47,7 @@ var valid=true;
 			valid=false;
 			return valid;
 		}	
-		
+
 	return true;
 	
 
@@ -82,9 +88,13 @@ function verifMDP(motP)
 	if (motP.value.length < 6)
 	{
 			alert("Votre mot de passe doit avoir au moins 6 caractères !");
-		return false;
+		  return false;
 	}
-	return true;
+  else
+  {
+      surligne(motP, false);
+      return true;
+  }
 }
 
 function verifTel(champ)

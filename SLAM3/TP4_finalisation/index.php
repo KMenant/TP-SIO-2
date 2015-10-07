@@ -42,7 +42,7 @@ $pageInitiale = new page_base("Formulaire");
 					</div>
 					<div>
 						<label for="dept">Département</label>
-						<input type="number" id="age" name="age" min="1" max="101"/>
+						<input type="number" id="dept" name="dept" min="1" max="101"/>
 					</div>	
 					<div>
 						<label for="pays">Pays</label>

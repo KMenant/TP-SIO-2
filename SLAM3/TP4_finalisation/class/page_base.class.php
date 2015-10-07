@@ -72,7 +72,7 @@ class page_base {
 	private function affiche_entete() {
 		echo '<header>BTS S.I.O (Services Informatiques aux Organisations)</header>';
 		echo '<h1>
-		<span>TP3 JavaScript et données</span>
+		<span>TP4 JavaScript et données</span>
 		</h1>
 
 		';
