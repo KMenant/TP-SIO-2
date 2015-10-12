@@ -57,7 +57,7 @@ $pageInitiale = new page_base("Formulaire");
 					</div>
 					<div>
 						<label for="dateN">Né(e) le : </label>
-						<input type="text" id="datepicker"/>
+						<input type="text" id="datepicker" name="datepicker" value="Date"/>
 					</div>	
 					<div>
 						<input type="radio" id="sexeH" name="sexe" value="femme"/>Femme

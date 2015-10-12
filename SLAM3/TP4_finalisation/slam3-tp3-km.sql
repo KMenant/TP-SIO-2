@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 06 Octobre 2015 à 17:41
+-- Généré le :  Mer 07 Octobre 2015 à 23:17
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -43,7 +43,17 @@ CREATE TABLE IF NOT EXISTS `compinfo` (
   `idComp` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `Libelle` varchar(50) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idComp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `compinfo`
+--
+
+INSERT INTO `compinfo` (`idComp`, `Libelle`) VALUES
+(001, 'HTML5'),
+(002, 'CSS3'),
+(003, 'PHP'),
+(004, 'JavaScript');
 
 -- --------------------------------------------------------
 
