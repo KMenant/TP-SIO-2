@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  console.log( "ready!" );  
+    console.log( "ready!" );  
 
-  // à la sélection d une formation dans la liste
-  $('#maForm').change(function(){
+    // à la sélection d une formation dans la liste
+    $('#maForm').change(function(){
         var val = $(this).val(); // on récupère la valeur de la région
         console.log("numéro de la formation : "+ val);
 

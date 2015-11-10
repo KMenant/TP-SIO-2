@@ -9,7 +9,7 @@ if(isset($_GET['IdFormation'])) {
 	$idF = htmlentities(intval($_GET['IdFormation']));
 			
 	// requête qui récupère les départements selon la région
-	$requete = "SELECT * FROM specialite WHERE IdFormation = ". $idF.";" ;
+	$requete = "SELECT * FROM etudiant WHERE IdFormation = ". $idF.";" ;
 		
 	     
     // exécution de la requête
@@ -18,9 +18,10 @@ if(isset($_GET['IdFormation'])) {
 		$resultat = $idD->query($requete);
      
     foreach($resultat as $donnees) {
-			$valeur = $donnees->Libelle;
-	
-			$json[$donnees->IdSpecialite] = utf8_encode($valeur);
+			$nom = $donnees->nom;
+			$prenom = $donnees->prenom;
+			$valeur = $nom." ".$prenom;
+			$json[$donnees->idEtudiant] = utf8_encode($valeur);
 			}
 		}
     // envoi du résultat au success
