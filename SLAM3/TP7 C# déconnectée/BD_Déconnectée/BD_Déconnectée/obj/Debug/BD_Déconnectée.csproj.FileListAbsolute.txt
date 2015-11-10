@@ -1,1 +1,10 @@
 W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\bin\Debug\BD_Déconnectée.exe.config
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.csprojResolveAssemblyReference.cache
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.Form1.resources
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.FormPersonne.resources
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.Properties.Resources.resources
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.csproj.GenerateResource.Cache
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\bin\Debug\BD_Déconnectée.exe
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\bin\Debug\BD_Déconnectée.pdb
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.exe
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.pdb

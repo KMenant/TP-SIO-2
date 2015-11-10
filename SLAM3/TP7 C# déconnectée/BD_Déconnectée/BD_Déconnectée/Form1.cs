@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace BD_Déconnectée
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void gestionDesPersonnesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormPersonne FP = new FormPersonne();
+            FP.MdiParent = this;
+            FP.Show();
         }
     }
 }
