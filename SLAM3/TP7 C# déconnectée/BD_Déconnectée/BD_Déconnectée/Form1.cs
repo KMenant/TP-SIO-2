@@ -25,9 +25,36 @@ namespace BD_Déconnectée
             FP.Show();
         }
 
+        private void gestionDesFormationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormFormation FF = new FormFormation();
+            FF.MdiParent = this;
+            FF.Show();
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Controleur.Vmodele.sedeconnecter();
         }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Controleur.init();
+            Controleur.Vmodele.seconnecter();
+            if (Controleur.Vmodele.Connopen == true)
+            {
+                Controleur.Vmodele.import();
+                if (Controleur.Vmodele.Chargement == true)
+                {
+                    gestionDesDonneesToolStripMenuItem.Enabled = true;
+                    Controleur.Vmodele.sedeconnecter();
+                }
+                else
+                    MessageBox.Show("Problème d'importation");
+            }
+            else
+                MessageBox.Show("Problème de connection à la BDD");
+        }
+
     }
 }

@@ -8,3 +8,5 @@ W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\bin\
 W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\bin\Debug\BD_Déconnectée.pdb
 W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.exe
 W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.pdb
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.FormFormation.resources
+W:\TP\TP-SIO-2\SLAM3\TP7 C# déconnectée\BD_Déconnectée\BD_Déconnectée\obj\Debug\BD_Déconnectée.FormCRUD.resources

@@ -32,9 +32,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.connecterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDesPersonnesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDesDonneesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesPersonnesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesFormationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connecterToolStripMenuItem,
-            this.gestionDesPersonnesToolStripMenuItem});
+            this.gestionDesDonneesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(983, 24);
@@ -65,27 +65,28 @@
             this.connecterToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.connecterToolStripMenuItem.Text = "Lien BD";
             // 
-            // gestionDesPersonnesToolStripMenuItem
-            // 
-            this.gestionDesPersonnesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionDesPersonnesToolStripMenuItem1,
-            this.gestionDesFormationsToolStripMenuItem});
-            this.gestionDesPersonnesToolStripMenuItem.Enabled = false;
-            this.gestionDesPersonnesToolStripMenuItem.Name = "gestionDesPersonnesToolStripMenuItem";
-            this.gestionDesPersonnesToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.gestionDesPersonnesToolStripMenuItem.Text = "Gestion des données";
-            // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToolStripMenuItem.Text = "Export";
+            // 
+            // gestionDesDonneesToolStripMenuItem
+            // 
+            this.gestionDesDonneesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestionDesPersonnesToolStripMenuItem1,
+            this.gestionDesFormationsToolStripMenuItem});
+            this.gestionDesDonneesToolStripMenuItem.Enabled = false;
+            this.gestionDesDonneesToolStripMenuItem.Name = "gestionDesDonneesToolStripMenuItem";
+            this.gestionDesDonneesToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
+            this.gestionDesDonneesToolStripMenuItem.Text = "Gestion des données";
             // 
             // gestionDesPersonnesToolStripMenuItem1
             // 
@@ -99,6 +100,7 @@
             this.gestionDesFormationsToolStripMenuItem.Name = "gestionDesFormationsToolStripMenuItem";
             this.gestionDesFormationsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.gestionDesFormationsToolStripMenuItem.Text = "Gestion des formations";
+            this.gestionDesFormationsToolStripMenuItem.Click += new System.EventHandler(this.gestionDesFormationsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -123,7 +125,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem connecterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionDesPersonnesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDesDonneesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDesPersonnesToolStripMenuItem1;

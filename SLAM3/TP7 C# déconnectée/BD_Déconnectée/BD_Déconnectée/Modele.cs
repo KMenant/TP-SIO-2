@@ -12,6 +12,7 @@ namespace BD_Déconnectée
     public class Modele
     {
         private MySqlConnection myConnection;
+        private MySqlDataAdapter mySqlDataAdapterTP7 = new MySqlDataAdapter();
         private DataSet dataSetTP7 = new DataSet();
         private DataView dv_formation = new DataView();
         private DataView dv_personne = new DataView();
@@ -23,7 +24,7 @@ namespace BD_Déconnectée
 
         public void seconnecter()
         {
-            string myConnectionString = "Database=bd_ex_bddeconnectee;Data Source=localhost;User Id=root;";
+            string myConnectionString = "Database=slam3_tp7;Data Source=localhost;User Id=root;";
             myConnection = new MySqlConnection(myConnectionString);
             try // tentative
             {
@@ -94,12 +95,12 @@ namespace BD_Déconnectée
         {
             get { return chargement; }
         }
-        public DataView Dv_formation
+        public DataView Dv_formation //Accesseur DataView Formation
         {
             get { return dv_formation; }
             set { dv_formation = value; }
         }
-        public DataView Dv_personne
+        public DataView Dv_personne //Accesseur DataView Personne
         {
             get { return dv_personne; }
             set { dv_personne = value; }
