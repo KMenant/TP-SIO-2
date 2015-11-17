@@ -37,22 +37,26 @@ $email = '';
 						 '</br>IdFormation : '.$_POST['maForm'].
 						 '</br>IdSpecialite : '.$_POST['maSpe'];
 	
-	$requete='INSERT INTO etudiant (nom, prenom, departement, pays, date_naiss, sexe, telephone, email, mdp, IdFormation, IdSpecialite) 
-			  VALUES ("'.$_POST['nom'].'", 
-			  	"'.$_POST['prenom'].'", 
-			  	'.$_POST['dept'].', 
-			  	"'.$_POST['pays'].'", 
-			  	'.$_POST['datepicker'].', 
-			  	'.$sexe.', 
-			  	'.$_POST['tel'].', 
-			  	"'.$_POST['email'].'", 
-			  	"'.$_POST['motpasse'].'", 
-			  	'.$_POST['IdFormation'].', 
-			  	'.$_POST['IdSpecialite'].');'; 
-
-    //$IDconnexion -> quote(string $chaine) ; 
+	$requete='INSERT INTO etudiant (email, mdp, nom, prenom, departement, pays, date_naiss, sexe, telephone,IdFormation, IdSpecialite) 
+			  VALUES (
+			  	"'.$IDconnexion->quote($_POST['email']).'", 
+			  	"'.$IDconnexion->quote($_POST['motpasse']).'", 
+			  	"'.$IDconnexion->quote($_POST['nom']).'", 
+			  	"'.$IDconnexion->quote($_POST['prenom']).'", 
+			  	 '.$IDconnexion->quote($_POST['dept']).', 
+			  	"'.$IDconnexion->quote($_POST['pays']).'", 
+			  	 '.$IDconnexion->quote($_POST['datepicker']).', 
+			  	 '.$IDconnexion->quote($sexe).', 
+			  	 '.$IDconnexion->quote($_POST['tel']).', 
+			  	 '.$IDconnexion->quote($_POST['IdFormation']).', 
+			  	 '.$IDconnexion->quote($_POST['IdSpecialite']).');'; 
 
     $nblignes = $IDconnexion -> exec($requete);
+	
+	if ($nblignes == 1)
+		echo('Ajouté');
+	else
+		echo('Problème');
 
 
 	$pageRecap->afficher();
