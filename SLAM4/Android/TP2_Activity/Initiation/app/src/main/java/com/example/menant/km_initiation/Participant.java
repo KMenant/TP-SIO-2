@@ -1,5 +1,6 @@
 package com.example.menant.km_initiation;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by Frederique de ROBIEN on 02/09/2015.
  */
 
-public class Participant implements Comparable {
+public class Participant implements Comparable, Serializable {
 
     public static int tri = 1;
     //1 si tri par nom

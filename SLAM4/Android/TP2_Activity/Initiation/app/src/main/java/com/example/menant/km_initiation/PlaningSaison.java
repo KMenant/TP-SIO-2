@@ -1,5 +1,6 @@
 package com.example.menant.km_initiation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -7,7 +8,7 @@ import java.util.Iterator;
 /**
  * Created by Frederique de ROBIEN on 08/09/2015.
  */
-public class PlaningSaison {
+public class PlaningSaison implements Serializable {
 
     private Date dateDebutSaison;
     private Date dateFinSaison;

@@ -1,5 +1,6 @@
 package com.example.menant.km_initiation;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ import java.util.Iterator;
 /**
  * Created by Frederique de ROBIEN on 08/09/2015.
  */
-public class CoursCollectifs extends Cours {
+public class CoursCollectifs extends Cours implements Serializable {
 
     private byte nombreMax;
     private ArrayList<Participant> lesParticipantsInscrits ;

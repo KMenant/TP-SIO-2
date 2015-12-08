@@ -56,5 +56,17 @@ namespace BD_Déconnectée
                 MessageBox.Show("Problème de connection à la BDD");
         }
 
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Controleur.Vmodele.seconnecter();
+            if (Controleur.Vmodele.Connopen == true)
+            {
+                Controleur.Vmodele.export();
+                Controleur.Vmodele.sedeconnecter();
+            }
+            else
+                MessageBox.Show("Problème de connection à la BDD");
+        }
+
     }
 }

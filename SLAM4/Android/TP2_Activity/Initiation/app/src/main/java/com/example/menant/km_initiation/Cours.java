@@ -1,11 +1,12 @@
 package com.example.menant.km_initiation;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Frederique de ROBIEN on 08/09/2015.
  */
-public abstract class Cours  {
+public abstract class Cours implements Serializable {
 
     protected String intituleCours;
     protected Date dateCours;

@@ -16,6 +16,8 @@ import java.util.Date;
 
 public class ActivityParticicipant extends Activity {
 
+    private Cours cours;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,18 @@ public class ActivityParticicipant extends Activity {
 
         Button btnEnregistrer=(Button) findViewById(R.id.btnEnregistrer);
         btnEnregistrer.setOnClickListener(btnclick); // btnclick à garder
+
+        Button btnListe=(Button) findViewById(R.id.btnListe);
+        btnListe.setOnClickListener(btnclick); // btnclick à garder
+
+        Button btnSortir=(Button) findViewById(R.id.btnSortir);
+        btnSortir.setOnClickListener(btnclick); // btnclick à garder
+
+        /*création du bundle qui va réceptionner les données passées par le Intent*/
+        Bundle b = getIntent().getExtras();
+        String info1 = b.getString("info1");
+        cours = (Cours) getIntent().getSerializableExtra("cours");
+        Toast.makeText(getApplicationContext(),"Chargement effectuée ! Cours : "+cours.toString(), Toast.LENGTH_LONG).show();
     }
 
     private View.OnClickListener btnclick = new View.OnClickListener() {
@@ -39,14 +53,29 @@ public class ActivityParticicipant extends Activity {
                         Byte dept = Byte.parseByte(((EditText) findViewById(R.id.txtNumDep)).getText().toString());
 
                         Participant p = new Participant(nom, prenom, date_naiss, dept);
+                        cours.ajouterParticipant(p);
                         //affichage de votre nouveau participant dans un Toast pour vérifier de sa bonne création
                         Toast.makeText(getApplicationContext(), p.toString(), Toast.LENGTH_SHORT).show();
+
+                        ((EditText) findViewById(R.id.txtNom)).setText("");
+                        ((EditText) findViewById(R.id.txtPrenom)).setText("");
+                        ((EditText) findViewById(R.id.txtDate)).setText("");
+                        ((EditText) findViewById(R.id.txtNumDep)).setText("");
                     }
                     catch(ParseException pe){
                         pe.printStackTrace();
                         //pour débugger plus visuellement, juste pour cette fois-ci
                         Toast.makeText(getApplicationContext(), "ERREUR du PARSE date", Toast.LENGTH_SHORT).show();
                     }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case R.id.btnListe:
+                    Toast.makeText(getApplicationContext(), cours.listeDesParticipants(), Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.btnSortir:
+                    finish();
                     break;
             }
         }

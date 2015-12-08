@@ -132,6 +132,14 @@
             android:id="@+id/btnEnregistrer"
             android:layout_gravity="center_horizontal"
             android:visibility="invisible" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enregistrer les Participants"
+            android:id="@+id/btnEnrPart"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible" />
     </LinearLayout>
 
 </RelativeLayout>

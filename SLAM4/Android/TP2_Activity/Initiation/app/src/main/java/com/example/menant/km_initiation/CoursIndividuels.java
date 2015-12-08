@@ -1,5 +1,6 @@
 package com.example.menant.km_initiation;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ import java.util.Date;
 /**
  * Created by Frederique de ROBIEN on 08/09/2015.
  */
-public class CoursIndividuels extends Cours  {
+public class CoursIndividuels extends Cours implements Serializable {
 
     private Participant leMoniteur;
     private Participant unSeulParticipant;
