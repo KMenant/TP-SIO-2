@@ -54,5 +54,29 @@ BEGIN
 	RETURN rep;
 END;
 
+CREATE PROCEDURE Ajout_Emprunt (IN id_adulte INT, IN id_livre INT, IN date_emprunt DATE, IN date_emprunt DATE, IN numero INT) 
+BEGIN
+	DECLARE rep VARCHAR(50);
+
+	IF EXISTS (SELECT * FROM adherent_junior as a WHERE CODEADHERENT = id_junior AND TOUSTYPES = 0)
+	THEN
+    	IF EXISTS (SELECT * FROM droit_junior WHERE CODEADHERENT = id_junior AND IDTYPE = id_type)
+        THEN
+        	SET rep = "Oui, il est autorisé";
+    	ELSE
+        	SET rep = "Non, il n'est pas autorisé";
+		END IF;
+    ELSE
+    	IF EXISTS (SELECT * FROM adherent_junior as a WHERE CODEADHERENT = id_junior AND TOUSTYPES = 1)
+        THEN
+        	SET rep = "Oui, l'adherent peut emprunter tous types de livres";
+		ELSE
+        	SET rep = "Erreur";        	
+        END IF;
+    END IF;
+    
+	RETURN rep;
+END;
+
 
 FONCTION
