@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gestion des cours de SKI</string>
+
+    <string name="hello_world">Hello BTS SIO Lycée Chevrollier - ANGERS!!</string>
+    <string name="bienvenue"> Bienvenue à LansLeVillage ! </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_particicipant">Gestion d\'un participant</string>
+</resources>

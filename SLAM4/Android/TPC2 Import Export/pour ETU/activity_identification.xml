@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.frederiquederobien.projetfr_initiationjava.Activity.IdentificationActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonIdentification"
+            android:src="@drawable/identification"
+            android:contentDescription="@string/identification"
+            android:cropToPadding="false"
+            android:layout_marginRight="20dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonImport"
+            android:src="@drawable/importe"
+            android:visibility="visible"
+            android:contentDescription="@string/importe"
+            android:layout_marginRight="20dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonExport"
+            android:src="@drawable/exporte"
+            android:contentDescription="@string/exporte"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/editTextLogin"
+            android:ems="20"
+            android:id="@+id/editTextLogin" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/editTextMdp"
+            android:ems="10"
+            android:id="@+id/editTextMdp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonTestConnexion"
+            android:id="@+id/buttonTestConnexion" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+VUES
+
+CREATE VIEW V_Livre_TypeRoman
+AS SELECT TITRE
+FROM livre as l
+INNER JOIN type_livre as tl ON l.IDTYPE = tl.IDTYPE
+WHERE tl.LIBELLET = "Roman";
+
+
+PROCEDURES
+
+CREATE PROCEDURE Caracteristique_Auteur (IN titre char(32))
+BEGIN
+	SELECT *
+	FROM auteur as a
+	INNER JOIN ecrire as e ON a.CODEAUTEUR = e.CODEAUTEUR
+	INNER JOIN livre as l ON e.CODELIVRE = l.CODELIVRE
+	WHERE l.TITRE = titre;
+END;
+
+CREATE PROCEDURE Junior_Autorise (IN id_junior int(11), IN id_type int(11)) RETURNS CHAR(50)
+BEGIN
+	DECLARE rep
+
+	SELECT * FROM adherent_junior as a
+	INNER JOIN droit_junior as d ON a.CODEADHERENT = d.CODEADHERENT
+	INNER JOIN type_livre as t ON d.IDTYPE = t.IDTYPE
+	WHERE a.CODEADHERENT = id_junior
+	AND t.IDTYPE;
+
+	RETURN rep;
+END;
+CREATE FUNCTION Junior_Autorise (id_junior INT, id_type INT) RETURNS VARCHAR(50)
+BEGIN
+	DECLARE rep VARCHAR(50);
+
+	IF EXISTS (SELECT * FROM adherent_junior as a WHERE CODEADHERENT = id_junior AND TOUSTYPES = 0)
+	THEN
+    	IF EXISTS (SELECT * FROM droit_junior WHERE CODEADHERENT = id_junior AND IDTYPE = id_type)
+        THEN
+        	SET rep = "Oui, il est autorisé";
+    	ELSE
+        	SET rep = "Non, il n'est pas autorisé";
+		END IF;
+    ELSE
+    	IF EXISTS (SELECT * FROM adherent_junior as a WHERE CODEADHERENT = id_junior AND TOUSTYPES = 1)
+        THEN
+        	SET rep = "Oui, l'adherent peut emprunter tous types de livres";
+		ELSE
+        	SET rep = "Erreur";        	
+        END IF;
+    END IF;
+    
+	RETURN rep;
+END;
+
+
+FONCTION
