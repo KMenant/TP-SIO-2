@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE article SYSTEM "article.dtd">
+<Article>
+	<Titre>Que boy acer</Titre>
+	<Texte>
+		<Paragraphe>
+			<Mot></Mot>
+			<Reference>
+				<Web>
+					<Nom></Nom>
+					<Url></Url>
+				</Web>
+				<Ouvrage>
+					<Titre></Titre>
+					<Date></Date>
+					<Editeur></Editeur>
+					<Auteur></Auteur>
+				</Ouvrage>
+			</Reference>
+		</Paragraphe>
+	</Texte>
+</Article>

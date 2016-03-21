@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!ELEMENT Article (Titre, Texte)>
+	<!ELEMENT Titre (#PCDATA)>
+	<!ELEMENT Texte (Paragraphe+)>
+		<!ELEMENT Paragraphe (Mot, Reference)>
+			<!ELEMENT Mot (#PCDATA)>
+			<!ELEMENT Reference (Web?, Ouvrage?)>
+				<!ELEMENT Web (Nom, Url)>
+					<!ELEMENT Nom (#PCDATA)>
+					<!ELEMENT Url (#PCDATA)>
+				<!ELEMENT Ouvrage (Titre, Date, Editeur, Auteur)>
+					<!ELEMENT Titre (#PCDATA)>
+					<!ELEMENT Date (#PCDATA)>
+					<!ELEMENT Editeur (#PCDATA)>
+					<!ELEMENT Auteur (#PCDATA)>

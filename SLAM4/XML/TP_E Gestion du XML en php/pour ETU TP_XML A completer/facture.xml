@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE Facture SYSTEM "facture.dtd">
+<Factures>
+
+	<Organisation>
+		<Nom>Monsieur Merlin LE ROY</Nom>
+		<Adresse>55 Boulevard Daviers 49000 ANGERS</Adresse>
+		<Tel>0655957588</Tel>		
+	</Organisation>
+
+	<Organisation>
+		<Nom>Madame PANNETIER Louise</Nom>
+		<Adresse>1à square Emile Zola 49000 ANGERS</Adresse>
+		<Tel>0241323333</Tel>
+	</Organisation>
+
+
+	<Facture id="F45218">
+		<Date>05/10/2013</Date>
+		<Montant>217</Montant>
+		<Ligne>
+			<Reference>PEINTURE55667</Reference>
+			<Intitule>Pot de peinture bleu cyan</Intitule>
+			<Quantite>5</Quantite>
+			<Prix>28</Prix>
+		</Ligne>
+		<Ligne>
+			<Reference>PINCEAU55213</Reference>
+			<Intitule>Pinceau a rechampir numero 8</Intitule>
+			<Quantite>3</Quantite>
+			<Prix>9</Prix>
+		</Ligne>
+		<Ligne>
+			<Reference>ETAGERE_VERRE6515</Reference>
+			<Intitule>Etagere en verre de 65 cm de longueur et de 15 cm de largeur </Intitule>
+			<Quantite>2</Quantite>
+			<Prix>25</Prix>
+		</Ligne>
+	</Facture>
+
+	<Facture id="F45258">
+		<Date>01/08/2015</Date>
+		<Montant>217</Montant>
+		<Ligne>
+			<Reference>EVIER 124</Reference>
+			<Intitule>Evier en marbre blanc</Intitule>
+			<Quantite>1</Quantite>
+			<Prix>59</Prix>
+		</Ligne>
+		<Ligne>
+			<Reference>PLACARD 4895</Reference>
+			<Intitule>Placard en bois de 1,80M / 1,4M</Intitule>
+			<Quantite>1</Quantite>
+			<Prix>65</Prix>
+		</Ligne>
+		<Ligne>
+			<Reference>LAMPE 587</Reference>
+			<Intitule>Lampe design bois noir</Intitule>
+			<Quantite>2</Quantite>
+			<Prix>13</Prix>
+		</Ligne>
+	</Facture>
+
+	<Facture id="F45417">
+		<Date>01/03/2016</Date>
+		<Montant>217</Montant>
+		<Ligne>
+			<Reference>CARRELAGE 154</Reference>
+			<Intitule>Carrelage 24/24cm Moderne</Intitule>
+			<Quantite>30</Quantite>
+			<Prix>15</Prix>
+		</Ligne>
+		<Ligne>
+			<Reference>PINCEAU55213</Reference>
+			<Intitule>Pinceau a rechampir numero 8</Intitule>
+			<Quantite>3</Quantite>
+			<Prix>9</Prix>
+		</Ligne>
+		<Ligne>
+			<Reference>CUISINE 27</Reference>
+			<Intitule>Cuisine Rouge</Intitule>
+			<Quantite>1</Quantite>
+			<Prix>5000</Prix>
+		</Ligne>
+	</Facture>
+
+</Factures>
