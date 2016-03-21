@@ -43,7 +43,7 @@ class Connexion{
             $retour = $retour . '
             <a href="#">
                 <div class="panel callout radius">
-                    <h6>'.$row['LIBELLE'].'</h6>
+                    <h6>'.$row['NOMCHAINE'].'</h6>
                 </div>
             </a>';
         }
@@ -60,7 +60,7 @@ class Connexion{
             <div class="large-4 small-6 columns">
                 <div class="panel">
                     <h5>'.$row['TITRE'].'</h5>
-                    <h6 class="subheader">'.$row['DESCRIPTION'].'</h6>
+                    <h6 class="subheader">'.$row['TYPEPROGRAMME'].'</h6>
                 </div>
             </div>';
         }
