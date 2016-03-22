@@ -1,12 +1,12 @@
 <?php
 require_once 'MyPDO.class.php';
 
-class Connexion{
+class Controlleur{
 
-    private $PARAM_hote='localhost';
+    private $PARAM_hote='192.168.215.10';
     private $PARAM_utilisateur='root'; 
     private $PARAM_mot_passe=''; 
-    private $PARAM_nom_bd='slam3-tp3-km'; //nom de la base de données
+    private $PARAM_nom_bd='tp10'; //nom de la base de données
 	
     private $BDD;
 	
@@ -37,13 +37,13 @@ class Connexion{
     public function chaines()
     {
         $retour='';
-        $result= $this->vpdo->return_chaines();
+        $result= $this->BDD->return_chaines();
         while ($row =$result->fetch())
         {
             $retour = $retour . '
-            <a href="#">
+            <a href="index.php?id='.$row->ID.'">
                 <div class="panel callout radius">
-                    <h6>'.$row['NOMCHAINE'].'</h6>
+                    <h6>'.$row->NOMCHAINE.'</h6>
                 </div>
             </a>';
         }
@@ -53,16 +53,23 @@ class Connexion{
     public function programmes()
     {
         $retour='';
-        $result= $this->vpdo->return_programmes();
+        $result;
+        if(isset($_GET['id']))
+            $result= $this->BDD->return_programmes_chaine($_GET['id']);
+        else
+            $result= $this->BDD->return_programmes();
         while ($row =$result->fetch())
         {
             $retour = $retour . '
-            <div class="large-4 small-6 columns">
-                <div class="panel">
-                    <h5>'.$row['TITRE'].'</h5>
-                    <h6 class="subheader">'.$row['TYPEPROGRAMME'].'</h6>
+            <a href="pageinfo.php?id='.$row->CODE.'">
+                <div class="large-6 small-8 columns">
+                    <div class="panel">
+                        <h5>'.$row->TITRE.'</h5>
+                        <h6 class="subheader">'.$row->TYPEPROGRAMME.'</h6>
+                        <h7 class="subheader">'.$row->DATE.' '.$row->HEURE.'</h7>
+                    </div>
                 </div>
-            </div>';
+            </a>';
         }
         return $retour;
     }

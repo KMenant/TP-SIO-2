@@ -26,7 +26,7 @@ class MyPDO extends PDO
     public function return_chaines()
     {
         $requete = 'SELECT * FROM CHAINE;';
-        $result = $this->connexion->query($requete);
+        $result = $this->query($requete);
         if ($result) {
             if ($result->rowCount() >= 1) {
                 return ($result);
@@ -36,8 +36,19 @@ class MyPDO extends PDO
 
     public function return_programmes()
     {
-        $requete = 'SELECT * FROM PROGRAMME as P INNER JOIN TYPE as T ON P.ID_T = T.ID;';
-        $result = $this->connexion->query($requete);
+        $requete = 'SELECT * FROM PROGRAMME as P INNER JOIN TYPE as T ON P.ID_T = T.ID INNER JOIN DIFFUSER as D ON P.CODE = D.CODE;';
+        $result = $this->query($requete);
+        if ($result) {
+            if ($result->rowCount() >= 1) {
+                return ($result);
+            }
+        }
+    }
+
+    public function return_programmes_chaine($chaine)
+    {
+        $requete = 'SELECT * FROM PROGRAMME as P INNER JOIN TYPE as T ON P.ID_T = T.ID INNER JOIN DIFFUSER as D ON P.CODE = D.CODE WHERE D.ID = '.$chaine.';';
+        $result = $this->query($requete);
         if ($result) {
             if ($result->rowCount() >= 1) {
                 return ($result);

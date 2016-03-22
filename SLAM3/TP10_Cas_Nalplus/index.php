@@ -1,118 +1,172 @@
 <?php
-include_once('class/autoload.php');
 
-$pageInitiale = new page_base("Formulaire");
+	include_once('class/autoload.php');
 
-	$ConnexionBaseSIO = new Connexion();
-	$IDconnexion = $ConnexionBaseSIO->IDconnexion;
+	$Controlleur = new Controlleur();
+	$BDD = $Controlleur->BDD;
 
-	if (!$IDconnexion){
-		$pageInitiale->corps = 'Problème d\'accès à la base de données </article></section>';
-	}
+	if (!$BDD)
+		echo('Problème d\'accès à la base de données');
 	else
 	{
+		echo ('
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
 
-		$CollFormations = $IDconnexion->query("SELECT * FROM formation");
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Foundation 5</title>
 
-		// suite du code permettant de créer le formulaire dans le corps de la page
-		$pageInitiale->corps .= ' bd connectée </br>
-			<form method="post" action="recap.php" name="formulaire" onsubmit="return valider ();">
-				<fieldset>
-					<legend>Inscription</legend>
-					<div>
-						<label for="email">Votre  Email</label>
-						<input type="text" id="email" name="email" onblur ="verifMail(this)"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="large-12 columns">
+
+			<div class="row">
+				<div class="large-12 columns">
+					<nav class="top-bar" data-topbar>
+						<ul class="title-area">
+
+							<li class="name">
+							<h1><a href="#">Programme</a></h1>
+							</li>
+							<li class="toggle-topbar menu-icon">
+								<a href="#"><span>menu</span></a>
+							</li>
+						</ul>
+						<section class="top-bar-section">
+
+							<ul class="right">
+								<li class="divider"></li>
+								<li class="has-dropdown">
+									<a href="#">Main Item 1</a>
+									<ul class="dropdown">
+										<li><label>Section Name</label></li>
+										<li class="has-dropdown">
+											<a class="" href="#">Has Dropdown, Level 1</a>
+											<ul class="dropdown">
+												<li>
+													<a href="#">Dropdown Options</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">Dropdown Option</a>
+										</li>
+										<li class="divider"></li>
+										<li><label>Section Name</label></li>
+										<li>
+											<a href="#">Dropdown Option</a>
+										</li>
+										<li>
+											<a href="#">Dropdown Option</a>
+										</li>
+										<li>
+											<a href="#">Dropdown Option</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="#">See all →</a>
+										</li>
+									</ul>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#">Main Item 2</a>
+								</li>
+								<li class="divider"></li>
+								<li class="has-dropdown">
+									<a href="#">Main Item 3</a>
+									<ul class="dropdown">
+										<li>
+											<a href="#">Dropdown Option</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="#">See all →</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</section>
+					</nav> 
+				</div>
+			</div> 
+
+			<div class="row">
+				<div class="large-4 small-12 columns">
+					<img src="">
+					<div class="hide-for-small panel">
+						<div class="subheader" id="chaines">
+							'. $Controlleur->chaines() .'
+						</div>
 					</div>
-					<div>
-						<label for="motpasse">Votre  mot de passe</label>
-						<input type="password" id="motpasse" name="motpasse" onblur ="verifMDP(this)" />
+				</div> 
+
+				<div class="large-8 columns">
+					<div class="row" id="programmes">
+						'. $Controlleur->programmes() .'
+					</div> 
+
+					<div class="row">
+						<div class="large-12 columns">
+							<div class="panel">
+								<div class="row">
+									<div class="large-2 small-6 columns"><img src="http://placehold.it/300x300&amp;text=Site%20Owner"></div>
+									<div class="large-10 small-6 columns">
+										<strong>This Site Is Managed By</strong>
+										<hr>
+										Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum
+										odio ornare sagittis
+									</div>
+								</div>
+							</div>
+						</div> 
 					</div>
-				</fieldset>
-				<a href="list.php">Liste des etudiants</a>
-				<fieldset id="informations_complementaires">
-					<legend>Informations complémentaires</legend>
-					<div class="afficher"><a href="#informations_complementaires">Informations complémentaires</a></div>
-					<div class="masquer"><a href="#">Fermer</a></div>
-					<div>
-						<label for="nom">Nom</label>
-						<input type="text" id="nom" name="nom" onblur ="verifChaine(this)" />
+				</div>
+			</div> 
+			<footer class="row">
+				<div class="large-12 columns">
+					<hr>
+					<div class="row">
+						<div class="large-6 columns">
+							<p>© Copyright no one at all. Go to town.</p>
+						</div>
+						<div class="large-6 columns">
+							<ul class="inline-list right">
+								<li>
+									<a href="#">Link 1</a>
+								</li>
+								<li>
+									<a href="#">Link 2</a>
+								</li>
+								<li>
+									<a href="#">Link 3</a>
+								</li>
+								<li>
+									<a href="#">Link 4</a>
+								</li>
+							</ul>
+						</div>
 					</div>
-					<div>
-						<label for="prenom">Prénom</label>
-						<input type="text" id="prenom" name="prenom" onblur ="verifChaine(this)" />
-					</div>
-					<div>
-						<label for="dept">Département</label>
-						<input type="number" id="dept" name="dept" min="1" max="101"/>
-					</div>	
-					<div>
-						<label for="pays">Pays</label>
-						<select name="pays" size="1">
-							<option value = "France"> France</option>
-							<option value = "Angleterre"> Angleterre</option>
-							<option value = "Allemagne"> Allemagne</option>
-							<option value = "Espagne"> Espagne</option>
-							<option value = "AutreEurope"> Autre pays européen</option>
-							<option value = "Autre"> Autre pays monde</option>
-						</select>
-					</div>
-					<div>
-						<label for="dateN">Né(e) le : </label>
-						<input type="text" id="datepicker"/>
-					</div>	
-					<div>
-						<input type="radio" id="sexeH" name="sexe" value="femme"/>Femme
-						<input type="radio" id="sexeF" name="sexe" value="homme"/>Homme
-					</div>	
-					<div>
-						<label for="tel">Téléphone</label>
-						<!--<input type="tel" id="tel" name="tel" pattern="^0[0-9]{9}"/>-->
-						<input type="text" id="tel" name="tel" onblur="verifTel(this)"/>
-					</div>	
-					<div>
-						<label for="comm">Commentaire</label>
-						<input type="text" id="comm" name="comm" onblur="verifChaine(this)"/>
-					</div>
-					<div>
-						<label for="competences">Compétences informatiques</label>
-					</div>
-					<div>
-						HTML5<input type="checkbox" id="competent[]" name="competent[]" value="HTML5"/>
-						CSS3<input type="checkbox" id="competent[]" name="competent[]" value="CSS3"/>
-						PHP<input type="checkbox" id="competent[]" name="competent[]" value="PHP"/>
-						JavaScript<input type="checkbox" id="competent[]" name="competent[]" value="Javascript"/>
-					</div>
-					<div>
-						<label for="specialite">Formation</label>
-						<select id="maForm" name="maForm" >';
-							foreach ($CollFormations as $f) {
-								$pageInitiale->corps .= '<option value='.$f->IdFormation.'>'.$f->Intitule.'</option>';
-							}
-						$CollFormations -> closeCursor(); // pour libérer la mémoire occupée par le résultat de la requête   
-						$CollFormations = null ; // pour une autre exécution avec cette variable
-
-						$pageInitiale->corps .= '</select>
-					</div>
-					<div>
-						<label for="specialite">Spécialité</label>
-						<select id="maSpe" name="maSpe" >
-						<option value=" ">--spe---</option>
-						</select>
-					</div>
-				</fieldset>
-				<input type="submit" value="Je m\'inscris" name="inscription" id="inscription" />
-				<input type="reset" value="Effacer" name="effacer" id="effacer" />
-			</form>';
-			
-	}
-
-
-
-$pageInitiale->afficher();
-
-
-
-
-
-
-
+				</div>
+			</footer> 
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+</body>
+</html>
+');
+}
+?>

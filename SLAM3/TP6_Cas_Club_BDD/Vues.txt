@@ -1,0 +1,112 @@
+-- Doublure de structure pour la vue `v_dirigant`
+--
+CREATE TABLE IF NOT EXISTS `v_dirigant` (
+`id` int(11)
+,`nom` char(32)
+,`prenom` char(32)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `v_equipement_coll`
+--
+CREATE TABLE IF NOT EXISTS `v_equipement_coll` (
+`id` int(11)
+,`nom` char(32)
+,`description` char(32)
+,`quantite` int(11)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `v_equipement_indiv`
+--
+CREATE TABLE IF NOT EXISTS `v_equipement_indiv` (
+`id` int(11)
+,`nom` char(32)
+,`description` char(32)
+,`quantite` tinyint(4)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `v_joueurs`
+--
+CREATE TABLE IF NOT EXISTS `v_joueurs` (
+`id` int(11)
+,`nom` char(32)
+,`prenom` char(32)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `v_licencie`
+--
+CREATE TABLE IF NOT EXISTS `v_licencie` (
+`id` int(11)
+,`nom` char(32)
+,`prenom` char(32)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `v_membre`
+--
+CREATE TABLE IF NOT EXISTS `v_membre` (
+`id` int(11)
+,`nom` char(32)
+,`prenom` char(32)
+);
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_dirigant`
+--
+DROP TABLE IF EXISTS `v_dirigant`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_dirigant` AS select `membre`.`ID` AS `id`,`membre`.`NOM` AS `nom`,`membre`.`PRENOM` AS `prenom` from `membre` where (`membre`.`ID` = (select `dirigant`.`ID` from `dirigant`));
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_equipement_coll`
+--
+DROP TABLE IF EXISTS `v_equipement_coll`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_equipement_coll` AS select `collectif`.`ID` AS `id`,`collectif`.`NOM` AS `nom`,`collectif`.`DESCRIPTION` AS `description`,`collectif`.`QUANTITE` AS `quantite` from `collectif`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_equipement_indiv`
+--
+DROP TABLE IF EXISTS `v_equipement_indiv`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_equipement_indiv` AS select `individuel`.`ID` AS `id`,`individuel`.`NOM` AS `nom`,`individuel`.`DESCRIPTION` AS `description`,`individuel`.`RENDRE` AS `quantite` from `individuel`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_joueurs`
+--
+DROP TABLE IF EXISTS `v_joueurs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_joueurs` AS select `membre`.`ID` AS `id`,`membre`.`NOM` AS `nom`,`membre`.`PRENOM` AS `prenom` from `membre` where (`membre`.`ID` = (select `joue`.`ID_1` from `joue`));
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_licencie`
+--
+DROP TABLE IF EXISTS `v_licencie`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_licencie` AS select `membre`.`ID` AS `id`,`membre`.`NOM` AS `nom`,`membre`.`PRENOM` AS `prenom` from `membre` where (`membre`.`ID` = (select `licencie`.`ID` from `licencie`));
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `v_membre`
+--
+DROP TABLE IF EXISTS `v_membre`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_membre` AS select `membre`.`ID` AS `id`,`membre`.`NOM` AS `nom`,`membre`.`PRENOM` AS `prenom` from `membre`;
